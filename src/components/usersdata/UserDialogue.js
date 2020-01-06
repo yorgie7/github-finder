@@ -25,66 +25,60 @@ const modelContent = {
   width: 200
 }
 
+
 class UserDialogue extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
-      userName: this.props.user.login,
+      userName: this.props.user,
       userData: [],
-      isOpen: this.props.isOpen
     };
-  
+    console.log(this.state.userName)
     this.Update = this.Update.bind(this);
   }
 
 
   async componentDidMount() {
 
-    const res = await fetch(`https://api.github.com/users/${this.state.userName}`)
+    const result = await fetch(`https://api.github.com/users/${this.state.userName}`)
       .then(res => res.json());
+    console.log(this.state.userName);
+    this.setState({ userData: result });
 
-    this.setState({ userData: res });
-    console.log('opened');
   };
 
-  Update(){
-    this.props.toggleDialog();
+  Update() {
+    this.props.toggleDialog(null);
   }
 
   render() {
-    // const Update = () => {
-    //   this.setState({ isOpen: !isOpen });
-    //   console.log('closed');
-    // }
-    const { isOpen } = this.props;
 
 
     return (
       <div>
 
-            <div className="dialogstyle" style={dialogStyle}>
+        <div className="dialogstyle" style={dialogStyle}>
 
 
-              <div className="flexbox" style={flexbox}>
+          <div className="flexbox" style={flexbox}>
 
 
-                <div className='modelcontant' style={modelContent}>
+            <div className='modelcontant' style={modelContent}>
 
-                  <div style={{ textAlign: 'right', paddingTop: '10px' }}><button onClick={this.Update} >X</button></div>
+              <div style={{ textAlign: 'right', paddingTop: '10px' }}><button onClick={this.Update} >X</button></div>
 
-                  <h3>{this.state.userData.name}</h3>
-                  <p>Following : {this.state.userData.following}</p>
-                  <p>Followers : {this.state.userData.followers}</p>
-                  <p>Following : {this.state.userData.following}</p>
-
+              <h3>{this.state.userData.name}</h3>
+              <p>Following : {this.state.userData.following}</p>
+              <p>Followers : {this.state.userData.followers}</p>
 
 
-                </div>
-
-              </div>
 
             </div>
+
+          </div>
+
+        </div>
       </div>
 
 

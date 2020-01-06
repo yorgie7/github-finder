@@ -12,15 +12,14 @@ class Navbar extends Component {
           background-color: #385875;
           height: 50px;
           width:100%`;
-    const Title = styled.h3`color: white`;
+    const Title = styled.h3`color: white;margin:5px`;
 
 return (
    <Nav>
   <Title>
     {this.props.title} 
   </Title>
-  <h1></h1>
- </Nav>
+  </Nav>
   )
 }
 }
