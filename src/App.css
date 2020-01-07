@@ -1,24 +1,22 @@
 
-
 .UsrImg {
   
   text-align: center;
   border-radius: 50%;
-  max-width: 100px;
+  max-width: 60px;
   padding-top: 10px;
 }
 
 .Card {
     padding-bottom: 20px;
-    text-align: center;
-    
-    background-color: #8dadb3;
+    text-align: center; 
+    background-color: lightgray;
 }
 
 .homeCard {
   display: flex;
   flex-direction: row;
-  border: 1px solid lightgrey;
+  border: 2px solid lightgrey;
   align-items: center;
   padding-bottom: 15px;
   padding-top: 10px;
@@ -30,7 +28,7 @@
 
 .Search {
   margin: auto;
-  width: max-content;
+  width: max-content ;
   height: fit-content;
   z-index: 99;
   }
@@ -90,8 +88,7 @@
     Display: grid;
     grid-gap: 20px;
     text-align: center;
-    margin-left:40px;
-    margin-right: 40px;
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr)) ; 
+    margin: 0px 60px 0px 60px;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr)) ; 
    } 
   

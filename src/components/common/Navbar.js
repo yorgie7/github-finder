@@ -8,17 +8,20 @@ class Navbar extends Component {
     static propTypes = { title: PropTypes.string.isRequired};
 
   render() {
-    const Nav = styled.div`overflow: hidden;
-          background-color: #385875;
-          height: 50px;
+    const Nav = styled.div`
+          background-color: #E5E5E5;display: flex;flex-direction:row;
+          height: 2 rem;
           width:100%`;
-    const Title = styled.h3`color: white;margin:5px`;
+    const Title = styled.h3`font-size: 20px;
+    text-shadow: 1px 0px 0px lightgrey;
+    color: blue; margin:10px; font-weight: 400`;
 
 return (
    <Nav>
   <Title>
     {this.props.title} 
   </Title>
+  
   </Nav>
   )
 }

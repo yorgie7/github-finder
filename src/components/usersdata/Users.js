@@ -3,10 +3,19 @@ import UserItem from "./UserItem";
 
 
 class User extends Component {
-  state = { isOpen: false }
+  constructor(props) {
+    super(props);
 
+    this.state = { isOpen: false, 
+       }
+
+}
+
+
+       
   render() {
-
+  
+       
     return (
       <div>
         <div>
@@ -20,7 +29,12 @@ class User extends Component {
                   <div className='UserCard'>
                     {this.props.user.map(usr => (
                       <UserItem key={usr.id} user={usr} />
-                    ))}</div>
+                    ))}
+                  </div>
+                      
+                  <div style={{ textAlign: 'center', paddingTop: '10px' }}>
+                    <button>See More</button>
+                  </div>
 
                 </div>
               )

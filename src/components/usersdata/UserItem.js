@@ -15,12 +15,22 @@ class UserItem extends Component {
       
         const { login, avatar_url } = this.props.user;
 
+        const userLogin = (loginStr) => {
+            return loginStr.toUpperCase().slice(0, 1) + loginStr.slice(1);
+        }
+
+        const userName = {
+            margin: '5px 5px 5px 0px',
+            textAlign: 'center',
+            fontSize: '20px',
+            fontWeight: 400
+        }
+        
 
         return (
             <div className="Card">
                 <img src={avatar_url} alt='NOT FOUND' className='UsrImg' />
-                       <h3>{login}</h3>
-
+                <h2 style={userName}>{userLogin(login)}</h2>
                 <div>
                     <button onClick={openDialog}>Find More</button>
                     {

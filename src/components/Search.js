@@ -8,7 +8,7 @@ class Search extends Component {
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
         /* or text: e.target.value */
-    
+
     }
 
     onSubmit = (e) => {
@@ -28,14 +28,23 @@ class Search extends Component {
 
 
     render() {
+        
         const inputStyle = {
             display: 'flex', flexDirection: 'row', maxWidth: '100%',
-            borderRadius: '10px', backgroundColor: 'none'
+            backgroundColor: 'none', height: '25px'
         };
 
         const searchBox = {
-            height: '25px', border: 'none',
-            paddingLeft: '5px', backgroundColor: '#dae0ce'
+            border: '1px solid blue', borderRadius: '5px', marginRight: '2px',
+            paddingLeft: '5px', backgroundColor: 'white', width: '300px'
+        }
+
+        const submitButton = {
+            backgroundColor: 'white', textAlign: 'center',
+            border: '1px solid blue', borderRadius: '5px',
+           paddingLeft:'10px',paddingRight:'10px',
+            cursor: 'pointer',
+            fontSize: '14px'
         }
 
         return (
@@ -43,11 +52,11 @@ class Search extends Component {
 
                 <form onSubmit={this.onSubmit} style={inputStyle}>
                     <input name='text' type='text'
-                        placeholder=' Search for user... '
+                        placeholder='Search for user... '
                         value={this.state.text}
                         onChange={this.onChange} style={searchBox} />
 
-                    <input type='submit' value='Search' />
+                    <input type='submit' value='Search' style={submitButton} />
                 </form>
 
             </div>

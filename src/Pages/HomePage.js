@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import Header from '../components/common/Header';
 import HomeUserCard from '../components/usersdata/HomeUserCard';
 import HomeGistCard from '../components/gists/HomeGistCard';
-import axios from 'axios';
 import UserDialogue from '../components/usersdata/UserDialogue';
+import axios from 'axios';
+
 
 class HomePage extends Component {
 
@@ -37,10 +38,10 @@ class HomePage extends Component {
   }
 
   async componentDidMount() {
-
     this.getUsers();
     this.getGists();
     this.setState({ isLoading: false });
+
     console.log('home data loaded');
   }
 
@@ -57,15 +58,15 @@ class HomePage extends Component {
   toggleDialog(dialogUser) {
 
     if (dialogUser === null) {
-      this.setState({ dialogUser: '', isDialogOpen: !this.state.isDialogOpen});
+      this.setState({ dialogUser: '', isDialogOpen: !this.state.isDialogOpen });
       console.log('bye dialog');
 
-      }
+    }
     else {
-       this.setState({
-           dialogUser: dialogUser,
-           isDialogOpen: !this.state.isDialogOpen
-         });
+      this.setState({
+        dialogUser: dialogUser,
+        isDialogOpen: !this.state.isDialogOpen
+      });
       console.log('hii dialog');
     }
     console.log(this.state.dialogUser);
@@ -75,7 +76,15 @@ class HomePage extends Component {
                       toggleDialog() ---//*/
 
   render() {
+
     const { isLoading, users, gists, dialogUser } = this.state;
+    const headingStyle = {
+      margin: '20px',
+      fontWeight: '350',
+  
+    };
+
+
 
     return (
 
@@ -91,7 +100,7 @@ class HomePage extends Component {
                 Please check your connection...</div>
             ) : (
                 <div>
-                  <h3>Github Users</h3>
+                  <h3 style={headingStyle}>Github Users</h3>
                   <div className='homeUserCard'>
                     {users.slice(0, 10).map(user => (
                       <HomeUserCard key={user.id} user={user} toggleDialog={this.toggleDialog} />
@@ -118,7 +127,7 @@ class HomePage extends Component {
                     <button><Link to="/userpage/">See More</Link></button>
                   </div>
 
-                  <h3>Public Gists</h3>
+                  <h3 style={headingStyle}>Public Gists</h3>
 
                   <div className='gistCardAlign'>
                     {gists.slice(0, 9).map(gist => (

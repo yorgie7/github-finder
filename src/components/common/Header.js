@@ -10,12 +10,12 @@ class Header extends Component {
 
     render() {
 
-        const HeaderStyle={backgroundColor: '#385875',paddingBottom:'20px',width: '100%'};
+        const HeaderStyle={backgroundColor: '#E5E5E5',paddingBottom:'20px',width: '100%'};
         
         return (
 
             <div style={HeaderStyle}>
-             <Navbar title="GitHUb Finder" /> 
+             <Navbar title="GitHub-Finder" /> 
              <div>
              <Search searchUsers={this.SearchFunction} />
             </div>

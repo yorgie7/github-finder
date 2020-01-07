@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import UserDialogue from './UserDialogue';
-import { nominalTypeHack } from 'prop-types';
+import { PropTypes } from 'prop-types';
 
 class HomeUserCard extends Component {
     constructor(props) {
@@ -9,10 +8,10 @@ class HomeUserCard extends Component {
         this.toggleDialog = this.toggleDialog.bind(this);
     }
 
-    state = {
-        isOpen: false,
+    // state = {
+    //     isOpen: false,
     
-    }
+    // }
 
     toggleDialog() {
 
@@ -28,20 +27,21 @@ class HomeUserCard extends Component {
         }
 
         const { login, avatar_url } = this.props.user;
+
         const userName = {
-            margin: '5px',
+            margin: '5px 5px 5px 0px',
             textAlign: 'left',
             fontSize: '18px',
             fontWeight: 400
         }
 
         const buttonStyle = {
-            marginTop: '5px', backgroundColor: '#7ba1ba',
-            border: 'none', fontSize: '12px', color: '#fff',
-            padding: '5px 12px'
+            marginTop: '5px', backgroundColor: '5F9EAO',
+            border: '1px solid #7ba1ba',
+            padding: '2px 5px', fontSize:'12px',fontWeight:'300',color: 'blue'
+            
         }
       
-
         return (
             <div className="homeCard">
                 <img src={avatar_url} alt='NOT FOUND' className='homeUsrImg' />
@@ -49,9 +49,9 @@ class HomeUserCard extends Component {
                     display: 'flex', flexDirection: 'column',
                     paddingLeft: '25px', alignContent: 'center'
                 }}>
-
-                    <h2 style={userName}>{userLogin(login)}</h2>
-                    <div style={{ textAlign: "center" }}>
+  
+                   <h2 style={userName}>{userLogin(login)}</h2>
+                    <div style={{ textAlign: "left" }}>
 
                     <button onClick={this.toggleDialog} style={buttonStyle}>Find More</button></div>
                 </div>
