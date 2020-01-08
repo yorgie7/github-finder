@@ -60,8 +60,7 @@ class HomePage extends Component {
     if (dialogUser === null) {
       this.setState({ dialogUser: '', isDialogOpen: !this.state.isDialogOpen });
       console.log('bye dialog');
-
-    }
+}
     else {
       this.setState({
         dialogUser: dialogUser,
@@ -81,7 +80,7 @@ class HomePage extends Component {
     const headingStyle = {
       margin: '20px',
       fontWeight: '350',
-  
+
     };
 
 
@@ -103,20 +102,21 @@ class HomePage extends Component {
                   <h3 style={headingStyle}>Github Users</h3>
                   <div className='homeUserCard'>
                     {users.slice(0, 10).map(user => (
-                      <HomeUserCard key={user.id} user={user} toggleDialog={this.toggleDialog} />
+                      <HomeUserCard key={user.id} 
+                      user={user} 
+                      toggleDialog={this.toggleDialog} />
                     ))}
                   </div>
                   {
-                    this.state.isDialogOpen && (
-                      <div>
+                    this.state.isDialogOpen && 
+                      ( <div>
 
                         <UserDialogue
                           user={dialogUser}
                           toggleDialog={this.toggleDialog}
                         />
 
-                      </div>
-                    )
+                      </div> )
                   }
 
                   <div style={{ textAlign: 'center', paddingTop: '10px' }}>

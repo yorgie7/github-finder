@@ -2,12 +2,21 @@ import React, { Component } from 'react';
 import UserDialogue from './UserDialogue';
 
 class UserItem extends Component {
+    constructor(props) {
+        super(props);
 
-    state = {
-        isOpen: false
-         }
- 
-  
+        this.toggleDialog = this.toggleDialog.bind(this);
+    }
+
+   
+
+    toggleDialog() {
+
+       this.props.toggleDialog(this.props.user.login);
+        console.log('dialog opened in user page');
+    }
+
+
 
     render() {
         
@@ -34,15 +43,9 @@ class UserItem extends Component {
                 <div>
                      <h2 style={userName}>{userLogin(login)}</h2>
                 
-                    <button onClick={openDialog}>Find More</button>
+                    <button onClick={this.toggleDialog}>Find More</button>
 
-                    {/* {
-                        this.state.isOpen && ( 
-                        <UserDialogue user={this.props.user} 
-                            isOpen={this.state.isOpen}
-                             />
-                          )
-                    } */}
+                   
                 </div>
 
                    

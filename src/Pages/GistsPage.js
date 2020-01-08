@@ -14,7 +14,8 @@ class GistsPage extends Component {
       visible: 7,
       hasMore: true
        }
-       this.loadMore = this.loadMore.bind(this)
+       this.loadMore = this.loadMore.bind(this);
+       
 }
    
 
@@ -32,24 +33,24 @@ class GistsPage extends Component {
     this.setState({ gists: [] });
   }
 
-
+ 
   loadMore() {
-    this.setState({visible: this.state.visible + 7});
+    this.setState({ visible: this.state.visible + 7 });
   }
 
   render() {
-    const { gists } = this.state
+    const { gists , visible} = this.state;
 
     return (
       <div>
         <Navbar title='Public Gists' />
   
                   <div>
-                    {gists.slice(0, this.state.visible).map(gist => (
+                    {gists.slice(0, visible).map(gist => (
                       <GistItem key={gist.id} gist={gist} />
                     ))}</div>
-
-                <div style={{ textAlign: 'center', paddingTop: '10px' }}>
+                    
+<div style={{ textAlign: 'center', paddingTop: '10px' }}>
                     <button onClick={this.loadMore}>See More</button>
                   </div>
 
