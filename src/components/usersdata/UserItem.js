@@ -30,18 +30,22 @@ class UserItem extends Component {
         return (
             <div className="Card">
                 <img src={avatar_url} alt='NOT FOUND' className='UsrImg' />
-                <h2 style={userName}>{userLogin(login)}</h2>
+               
                 <div>
+                     <h2 style={userName}>{userLogin(login)}</h2>
+                
                     <button onClick={openDialog}>Find More</button>
-                    {
+
+                    {/* {
                         this.state.isOpen && ( 
                         <UserDialogue user={this.props.user} 
                             isOpen={this.state.isOpen}
                              />
                           )
-                    }
+                    } */}
                 </div>
 
+                   
             </div>
         )
     }

@@ -43,8 +43,8 @@ class Search extends Component {
             backgroundColor: 'white', textAlign: 'center',
             border: '1px solid blue', borderRadius: '5px',
            paddingLeft:'10px',paddingRight:'10px',
-            cursor: 'pointer',
-            fontSize: '14px'
+            cursor: 'pointer',color: 'blue',fontWeight:'200'
+,            fontSize: '14px'
         }
 
         return (
@@ -53,7 +53,7 @@ class Search extends Component {
                 <form onSubmit={this.onSubmit} style={inputStyle}>
                     <input name='text' type='text'
                         placeholder='Search for user... '
-                        value={this.state.text}
+                        value={this.state.text} autoComplete='off'
                         onChange={this.onChange} style={searchBox} />
 
                     <input type='submit' value='Search' style={submitButton} />

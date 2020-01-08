@@ -10,7 +10,7 @@ class Header extends Component {
 
     render() {
 
-        const HeaderStyle={backgroundColor: '#E5E5E5',paddingBottom:'20px',width: '100%'};
+        const HeaderStyle={backgroundColor: 'lightgrey',paddingBottom:'20px',width: '100%'};
         
         return (
 

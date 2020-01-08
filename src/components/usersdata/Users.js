@@ -3,14 +3,21 @@ import UserItem from "./UserItem";
 
 
 class User extends Component {
+
   constructor(props) {
     super(props);
 
-    this.state = { isOpen: false, 
+    this.state = { 
+       users: this.props.users,
+      isOpen: false, 
+      visible: 12
        }
-
+       this.loadMore = this.loadMore.bind(this)
 }
 
+loadMore() {
+  this.setState({visible: this.state.visible +12})
+}
 
        
   render() {
@@ -27,13 +34,13 @@ class User extends Component {
             ) : (
                 <div>
                   <div className='UserCard'>
-                    {this.props.user.map(usr => (
+                    {this.props.users.slice(0,this.state.visible).map(usr => (
                       <UserItem key={usr.id} user={usr} />
                     ))}
                   </div>
                       
                   <div style={{ textAlign: 'center', paddingTop: '10px' }}>
-                    <button>See More</button>
+                    <button onClick={this.loadMore}>See More</button>
                   </div>
 
                 </div>

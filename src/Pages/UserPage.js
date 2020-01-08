@@ -62,7 +62,7 @@ class UserPage extends Component {
         }
         <div>
 
-          <Users user={users} loading={isLoading} />
+          <Users users={users} loading={isLoading} />
 
         </div>
       </div>

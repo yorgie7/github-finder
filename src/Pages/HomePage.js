@@ -119,10 +119,6 @@ class HomePage extends Component {
                     )
                   }
 
-
-
-
-
                   <div style={{ textAlign: 'center', paddingTop: '10px' }}>
                     <button><Link to="/userpage/">See More</Link></button>
                   </div>

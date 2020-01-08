@@ -5,12 +5,18 @@ import axios from 'axios';
 
 
 class GistsPage extends Component {
+  constructor(props) {
+    super(props);
 
-  state = {
-    gists: [],
-    isLoading: false,
-  
-  };
+    this.state = { 
+      gists: [],
+      isLoading: false,
+      visible: 7,
+      hasMore: true
+       }
+       this.loadMore = this.loadMore.bind(this)
+}
+   
 
  async componentDidMount() {
     this.setState({ isLoading: true });
@@ -22,10 +28,13 @@ class GistsPage extends Component {
   }
  
 
-
- 
   clearGists = () => {
     this.setState({ gists: [] });
+  }
+
+
+  loadMore() {
+    this.setState({visible: this.state.visible + 7});
   }
 
   render() {
@@ -36,9 +45,13 @@ class GistsPage extends Component {
         <Navbar title='Public Gists' />
   
                   <div>
-                    {gists.map(gist => (
+                    {gists.slice(0, this.state.visible).map(gist => (
                       <GistItem key={gist.id} gist={gist} />
                     ))}</div>
+
+                <div style={{ textAlign: 'center', paddingTop: '10px' }}>
+                    <button onClick={this.loadMore}>See More</button>
+                  </div>
 
                 </div>
 

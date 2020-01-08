@@ -9,7 +9,7 @@ class Navbar extends Component {
 
   render() {
     const Nav = styled.div`
-          background-color: #E5E5E5;display: flex;flex-direction:row;
+          background-color: lightgrey;display: flex;flex-direction:row;
           height: 2 rem;
           width:100%`;
     const Title = styled.h3`font-size: 20px;

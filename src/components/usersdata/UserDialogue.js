@@ -21,8 +21,8 @@ const flexbox = {
 const modelContent = {
   backgroundColor: '#fefefe',
   margin: 'auto',
-  padding: 20,
-  width: 200
+  padding: '10px',
+  width: 'auto'
 }
 
 
@@ -66,13 +66,28 @@ class UserDialogue extends Component {
 
             <div className='modelcontant' style={modelContent}>
 
-              <div style={{ textAlign: 'right', paddingTop: '10px' }}><button onClick={this.Update} >X</button></div>
-
-              <h3>{this.state.userData.name}</h3>
+              <div style={{ textAlign: 'right', paddingTop: '0px' }}>
+                <button onClick={this.Update} >X</button>
+                </div>
+<div style={{padding:'15px'}}> 
+              <h3 style={{padding:'5px',margin:'0px'}}>{this.state.userData.name}</h3>
+             
+              <div style={{display:'flex',flexDirection:'row',paddingRight:'20px'}}>
               <p>Following : {this.state.userData.following}</p>
               <p>Followers : {this.state.userData.followers}</p>
+                </div>
 
-
+              <div style={{display:'flex',flexDirection:'row'}}>
+                        <div style={{display:'flex',flexDirection:'column',paddingRight:'30px'}}>
+                           <h3 style={{margin:'5px'}}>{this.state.userData.following}</h3>
+                            <p style={{paddingRight:'10px',margin:'0px'}}>followers</p>
+                            </div>
+                        <div style={{display:'flex',flexDirection:'column', textAlign:'center'}}>
+                                  <h3 style={{margin:'5px'}}>{this.state.userData.followers}</h3>
+                            <p style={{margin:'0px'}}>following</p>
+                            </div>
+                    </div>
+        </div>
 
             </div>
 
