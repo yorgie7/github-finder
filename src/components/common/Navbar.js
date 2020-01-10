@@ -14,13 +14,15 @@ class Navbar extends Component {
           width:100%`;
     const Title = styled.h3`font-size: 20px;
     text-shadow: 1px 0px 0px lightgrey;
-    color: blue; margin:10px; font-weight: 400`;
+    color: blue; margin:10px; font-weight: 300; margin-right: auto`;
 
 return (
    <Nav>
   <Title>
     {this.props.title} 
+  
   </Title>
+    <div style={{marginTop:'10px'}}> {this.props.children} </div>
   
   </Nav>
   )

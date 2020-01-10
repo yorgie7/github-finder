@@ -8,10 +8,6 @@ class HomeUserCard extends Component {
         this.toggleDialog = this.toggleDialog.bind(this);
     }
 
-    // state = {
-    //     isOpen: false,
-    
-    // }
 
     toggleDialog() {
 

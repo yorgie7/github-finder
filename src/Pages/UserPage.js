@@ -51,8 +51,9 @@ class UserPage extends Component {
 
     return (
       <div>
-        <Navbar title='git-hub Users' />
-           <Search searchUsers={this.searchFunction} />
+        <Navbar title='git-hub Users' >
+          <Search searchUsers={this.searchFunction} />
+        </Navbar>
       
         {
           this.state.showButton ? (
