@@ -50,9 +50,10 @@ class GistsPage extends Component {
                       <GistItem key={gist.id} gist={gist} />
                     ))}</div>
                     
+                   { this.state.gists.length > 0 && 
 <div style={{ textAlign: 'center', paddingTop: '10px' }}>
                     <button onClick={this.loadMore}>See More</button>
-                  </div>
+                  </div>}
 
                 </div>
 

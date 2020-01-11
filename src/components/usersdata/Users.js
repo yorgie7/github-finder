@@ -61,20 +61,23 @@ class User extends Component {
                     ))}
                   </div>
 
-                  <div style={{ textAlign: 'center', paddingTop: '10px' }}>
-                    <button onClick={this.loadMore}>See More</button>
-                  </div>
-                      
+
                   {
-                    this.state.isDialogOpen && 
-                      ( <div>
+                    this.props.users.length > 0 && (<div style={{ textAlign: 'center', paddingTop: '20px' }}>
+                      <button onClick={this.loadMore}>See More</button>
+                    </div>)
+                  }
 
-                        <UserDialogue
-                          user={this.state.dialogUser}
-                          toggleDialog={this.toggleDialog}
-                        />
+                  {
+                    this.state.isDialogOpen &&
+                    (<div>
 
-                      </div> )
+                      <UserDialogue
+                        user={this.state.dialogUser}
+                        toggleDialog={this.toggleDialog}
+                      />
+
+                    </div>)
                   }
 
                 </div>

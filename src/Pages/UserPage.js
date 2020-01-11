@@ -11,14 +11,14 @@ class UserPage extends Component {
   state = {
     users: [],
     isLoading: false,
-    showButton: true
+    showButton: false
   };
 
   async componentDidMount() {
     this.setState({ isLoading: true });
     const res = await axios.get(`https://api.github.com/users`);
     this.setState({ users: res.data });
-    this.setState({ isLoading: false });
+    this.setState({ isLoading: false ,showButton: true});
   
   }
 
@@ -39,29 +39,32 @@ class UserPage extends Component {
   }
 
   render() {
-    const { isLoading, users } = this.state
-    const clearBtn = {
-      backgroundColor: 'white', textAlign: 'center',
-      border: '1px solid blue', borderRadius: '5px',
-      paddingLeft: '10px', paddingRight: '10px',
+    const { isLoading, users } = this.state;
+
+    const clearBtn = { height:'20px',
+      position:'fixed',marginTop:'10px',marginLeft:'90%',
+      backgroundColor: 'blue', textAlign: 'center',
+      border: '1px solid blue', borderRadius: '60px',
+      paddingLeft: '7px', paddingRight: '7px',color:'white',
       cursor: 'pointer',
-      fontSize: '14px'
+      fontSize: '12px'
     }
 
 
     return (
       <div>
-        <Navbar title='git-hub Users' >
+     <div  style={{overflow:'display'}}>   <Navbar title='git-hub Users'>
           <Search searchUsers={this.searchFunction} />
-        </Navbar>
+        </Navbar></div>
       
         {
           this.state.showButton ? (
             <button onClick={this.clearUsers} style={clearBtn}>
-              Clear Search</button>
-          ) : (<div style={{ textAlign: 'center' }}>Type a keyword to search user... </div>)
+              Clear</button>
+          ) : (<div style={{ textAlign: 'center',fontSize:'22px',paddingTop:'20vh',fontWeight:'200' }}>
+                Type a keyword to search user... </div>)
         }
-        <div>
+        <div style={{marginTop:'25px', height:'10%'}}>
 
           <Users users={users} loading={isLoading} />
 

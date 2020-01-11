@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Search extends Component {
-    state = {
-        text: ''
+    constructor(props) {
+        super(props);
+    this.state = {
+        text: '',
+        suggest:[]
     }
+    };
 
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
-        /* or text: e.target.value */
+            if(e.target.value=== ''){
+                this.setState({suggest: []})
+            } else{
+                this.suggestFunction(e.target.value);
+            }
 
+        
     }
 
     onSubmit = (e) => {
@@ -18,15 +28,29 @@ class Search extends Component {
 
         }
         else {
-            console.log(this.state.text);
-
-            this.props.searchUsers(this.state.text);
+            
+     this.props.searchUsers(this.state.text);
 
             this.setState({ text: '' })
         }
     };
 
+    suggestFunction = async text => {
+        
+        const res = await axios.get(`https://api.github.com/search/users?q=${text}`);
 
+        this.setState({ suggest: res.data.items });
+      }
+    
+     suggestedResults = (p) => {
+         
+        this.setState({text: p});
+        console.log(p)
+        this.props.searchUsers(this.state.text);
+        
+      }
+    
+    
     render() {
         
         const inputStyle = {
@@ -36,7 +60,7 @@ class Search extends Component {
 
         const searchBox = {
             border: '1px solid blue', borderRadius: '5px', marginRight: '2px',
-            paddingLeft: '5px', backgroundColor: 'white', width: '300px'
+            paddingLeft: '5px', backgroundColor: 'white', width: '200px'
         }
 
         const submitButton = {
@@ -58,6 +82,25 @@ class Search extends Component {
 
                     <input type='submit' value='Search' style={submitButton} />
                 </form>
+              
+
+                <div style={{overflow:'display',height:'10px',zIndex:'999',width:'210px'}}>
+
+                      { this.state.suggest.length >0 && (
+                <ul className='ul-suggest'>
+
+                        <li>Users</li>
+                       
+                        </ul>)}
+                    <ul className='ul-suggest'>
+                        
+        {this.state.suggest.slice(0,7).map((suggest_result)=><li key={suggest_result.id}
+          onClick={()=>{this.suggestedResults(suggest_result.login)}}>
+
+                   {suggest_result.login}</li>)}
+                 
+                    </ul> 
+                </div>
 
             </div>
         )

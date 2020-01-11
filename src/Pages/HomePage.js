@@ -46,7 +46,7 @@ class HomePage extends Component {
   }
 
 
-
+  
   SearchFunction = async text => {
     this.setState({ isLoading: true });
     const res = await axios.get(`https://api.github.com/search/users?q=${text}`);
@@ -98,7 +98,7 @@ class HomePage extends Component {
                 <h2>Loading...</h2>
                 Please check your connection...</div>
             ) : (
-                <div>
+                <div className='divHideScroll'>
                   <h3 style={headingStyle}>Github Users</h3>
                   <div className='homeUserCard'>
                     {users.slice(0, 10).map(user => (

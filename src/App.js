@@ -11,15 +11,14 @@ function App() {
 
     return (
      <Router>
-            { <div style={{display:'flex', flexDirection:'row',flexBasis:'200px'}}>
+            {/* { <div style={{display:'flex', flexDirection:'row'}}>
               <Link to="/">Home  </Link>
                  <Link to="/userpage/">Users   </Link>
                   <Link to="/gistpage/">Gists   </Link>
                   <Link to="/aboutpage/">About   </Link>
                   
-                  </div> 
-                  }
-     
+                  </div>  } */}
+                 
           <Switch>
         <Route path="/gistpage/" exact component={GistsPage} />
         <Route path="/userpage/" exact component={UserPage} />

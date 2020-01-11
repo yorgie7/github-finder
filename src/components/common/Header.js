@@ -7,10 +7,12 @@ class Header extends Component {
     
     
     SearchFunction = this.props.Search;
-
+    
     render() {
 
-        const HeaderStyle={backgroundColor: 'lightgrey',paddingBottom:'20px',width: '100%'};
+        const HeaderStyle={
+        backgroundColor: 'lightgrey',paddingBottom:'20px',
+        width: '100%'};
         
         return (
 

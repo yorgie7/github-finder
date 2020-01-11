@@ -7,6 +7,12 @@
   padding-top: 10px;
 }
 
+.primary-button {
+
+  
+}
+
+
 .Card {
     padding-bottom: 20px;
     text-align: center; 
@@ -27,7 +33,10 @@
 
 
 .Search {
+  display: flex;
+  flex-direction: column;
   margin: auto;
+  margin-right: 10px;
   width: max-content ;
   height: fit-content;
   z-index: 99;
@@ -42,7 +51,6 @@
     width :84%;
     margin-left: 8%;
     margin-right: 8%;
-  
     padding-right: 20px;
     padding-top: 5px;
     border-style: groove;
@@ -92,3 +100,22 @@
     grid-template-columns: repeat(auto-fit, minmax(200px,1fr)) ; 
    } 
   
+
+   .divHideScroll::-webkit-scrollbar {
+    width: 0 !important
+}
+.divHideScroll {
+  height: 86vh;
+    overflow: scroll;
+}
+
+
+.ul-suggest {
+  display: block;
+  margin: 0;
+  list-style-type: none;
+  background-color: #d3dbd5;
+  z-index: 999;
+  padding: 0 10px 0 10px;
+
+}
