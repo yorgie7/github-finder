@@ -3,8 +3,12 @@ import React, { Component } from 'react';
 
 class GistItem extends Component {
 
-    render() {
 
+
+    render() {
+        const ownerLogin = (loginStr) => {
+            return loginStr.toUpperCase().slice(0, 1) + loginStr.slice(1);
+           }
 
         const flexColumn = {
             alignItems: 'center',
@@ -19,10 +23,11 @@ class GistItem extends Component {
             <div className='GistCard'>
                 <div style={flexColumn}>
                     <img src={owner.avatar_url} alt='NOT FOUND' className='UsrImg' />
-                    <h4>{owner.login}</h4>
+                    <h4>{ownerLogin(owner.login)}</h4>
                 </div>
-
+               
                 <div style={flexColumn}>
+    
                     <a href={html_url} target='_blank' rel='noopener noreferrer'>gist url</a>
                     <p>Created at: {created_at}</p>
                     <p>Updated at: {updated_at}</p>

@@ -7,10 +7,10 @@
   padding-top: 10px;
 }
 
-.primary-button {
+/* .primary-button {
 
   
-}
+} */
 
 
 .Card {
@@ -55,7 +55,7 @@
     padding-top: 5px;
     border-style: groove;
     border-width: 1px;
-     background-color:#7ba4c7;
+     background-color:#c2cad3;
    }
 
 
@@ -72,7 +72,7 @@
     padding-left: 10px;
     border-style: groove;
     border-width: 1px;
-    background-color: #7d9eba;
+    background-color: hsl(208, 25%, 73%);
   }
   
   .gistCardAlign  {
@@ -90,8 +90,9 @@
     width: 80%;
     Display: inline-grid;
     grid-gap: 20px;
-    grid-template-columns:  repeat( auto-fit, minmax(200px,1fr));
+    grid-template-columns: repeat( auto-fit, minmax(200px,1fr));
     }
+    
    .homeUserCard  {
     Display: grid;
     grid-gap: 20px;
@@ -110,12 +111,23 @@
 }
 
 
-.ul-suggest {
+.ul1-suggest {
   display: block;
   margin: 0;
   list-style-type: none;
   background-color: #d3dbd5;
   z-index: 999;
-  padding: 0 10px 0 10px;
+  padding: 5px 10px 5px 10px;
+
+}
+.ul2-suggest {
+  display: block;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 300;
+  list-style-type: none;
+  background-color: #d3dbd5;
+  z-index: 999;
+  padding: 0 10px 5px 10px;
 
 }

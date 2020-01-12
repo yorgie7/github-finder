@@ -46,7 +46,6 @@ class HomePage extends Component {
   }
 
 
-  
   SearchFunction = async text => {
     this.setState({ isLoading: true });
     const res = await axios.get(`https://api.github.com/search/users?q=${text}`);

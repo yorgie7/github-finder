@@ -11,7 +11,7 @@ class Header extends Component {
     render() {
 
         const HeaderStyle={
-        backgroundColor: 'lightgrey',paddingBottom:'20px',
+        backgroundColor: 'lightgrey',paddingBottom:'10px',
         width: '100%'};
         
         return (
