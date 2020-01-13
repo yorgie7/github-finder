@@ -8,15 +8,14 @@ class GistsPage extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { 
-      gists: [],
-      isLoading: false,
-      visible: 7,
-      hasMore: true
+      this.state = { 
+        gists: [],
+        isLoading: false,
+        visible: 7,
+        hasMore: true
+        }
+        this.loadMore = this.loadMore.bind(this);
        }
-       this.loadMore = this.loadMore.bind(this);
-       
-}
    
 
  async componentDidMount() {
@@ -43,7 +42,7 @@ class GistsPage extends Component {
 
     return (
       <div>
-        <Navbar title='Public Gists' />
+        <Navbar title='GitHub App' />
   
                   <div>
                     {gists.slice(0, visible).map(gist => (

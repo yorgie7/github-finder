@@ -40,7 +40,7 @@ class User extends Component {
           });
            console.log('hii dialog');
         }
-        console.log(this.state.dialogUser);
+  
         }
 
 
@@ -51,8 +51,8 @@ class User extends Component {
           <div>
             {
               this.props.loading ? (
-                <div style={{ textAlign: 'center' }}>
-                  <h2>Loading...</h2>
+                <div style={{ textAlign: 'center', fontWeight:'300', margin:'180px' }}>
+                  <h2 style={{ textAlign: 'center', fontWeight:'300'}}>Loading...</h2>
                   Please check your connection...</div>
               ) : (
                   <div>

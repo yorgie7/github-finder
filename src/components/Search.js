@@ -31,17 +31,7 @@ class Search extends Component {
         }
     };
 
-    onChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value });
-        if (e.target.value === '') {
-            this.setState({ suggest: [], isSuggestOpen: false })
-        } else {
-            this.setState({isSuggestOpen: true});
-            this.suggestFunction(e.target.value);
-        }
-
-
-    }
+ 
 
     onSubmit = (e) => {
         e.preventDefault();
@@ -57,6 +47,18 @@ class Search extends Component {
         }
     };
 
+    onChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value });
+        if (e.target.value === '') {
+            this.setState({ suggest: [], isSuggestOpen: false })
+        } else {
+            this.setState({isSuggestOpen: true});
+            this.suggestFunction(e.target.value);
+        }
+
+
+    }
+    
     suggestFunction = async text => {
 
         const res = await axios.get(`https://api.github.com/search/users?q=${text}`);
@@ -67,11 +69,11 @@ class Search extends Component {
 
     }
 
-    suggestedOnclick = (p) => {
+    suggestedOnclick = (suggest_login) => {
 
-        this.setState({ text: p , isSuggestOpen : false});
-        console.log(p)
-        this.props.searchUsers(this.state.text);
+        this.setState({ text: suggest_login , isSuggestOpen : false});
+        console.log(suggest_login);
+        this.props.searchUsers(suggest_login);
 
     }
 
@@ -105,7 +107,7 @@ class Search extends Component {
 
                         <ul className='ul2-suggest'>
 
-                            {this.state.suggest.slice(0, 7).map((suggest_result) => <li key={suggest_result.id}
+                               {this.state.suggest.slice(0, 7).map((suggest_result) => <li key={suggest_result.id}
                                 onClick={() => { this.suggestedOnclick(suggest_result.login) }} >
 
                                 {suggest_result.login}</li>)}

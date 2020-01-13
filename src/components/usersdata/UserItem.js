@@ -1,5 +1,20 @@
 import React, { Component } from 'react';
 
+const openDialog = () => this.setState({ isOpen: true });
+      
+
+const userLogin = (loginStr) => {
+    return loginStr.toUpperCase().slice(0, 1) + loginStr.slice(1);
+   }
+
+const userName = {
+    margin: '5px 5px 5px 0px',
+    textAlign: 'center',
+    fontSize: '20px',
+    fontWeight: 400
+   }
+
+
 class UserItem extends Component {
     
     constructor(props) {
@@ -16,21 +31,8 @@ class UserItem extends Component {
 
 
     render() {
-        
-        const openDialog = () => this.setState({ isOpen: true });
-      
         const { login, avatar_url } = this.props.user;
 
-        const userLogin = (loginStr) => {
-            return loginStr.toUpperCase().slice(0, 1) + loginStr.slice(1);
-           }
-
-        const userName = {
-            margin: '5px 5px 5px 0px',
-            textAlign: 'center',
-            fontSize: '20px',
-            fontWeight: 400
-           }
         
         return (
           <div className="Card">
