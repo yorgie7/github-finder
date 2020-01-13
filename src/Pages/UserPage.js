@@ -6,15 +6,7 @@ import axios from 'axios';
 
 
 
-const clearBtn = {
-  height: '20px',
-  position: 'fixed', marginTop: '10px', marginLeft: '90%',
-  backgroundColor: 'blue', textAlign: 'center',
-  border: '1px solid blue', borderRadius: '60px',
-  paddingLeft: '7px', paddingRight: '7px', color: 'white',
-  cursor: 'pointer',
-  fontSize: '12px'
-}
+
 class UserPage extends Component {
 
   state = {

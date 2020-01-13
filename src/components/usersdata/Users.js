@@ -55,7 +55,7 @@ class User extends Component {
                   <h2 style={{ textAlign: 'center', fontWeight:'300'}}>Loading...</h2>
                   Please check your connection...</div>
               ) : (
-                  <div>
+                  <div className='divHideScrollUser'>
                     <div className='UserCard'>
                       {this.props.users.slice(0, this.state.visible).map(usr => (
                         <UserItem key={usr.id} user={usr} toggleDialog={this.toggleDialog} />

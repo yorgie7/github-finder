@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
-const openDialog = () => this.setState({ isOpen: true });
       
-
 const userLogin = (loginStr) => {
     return loginStr.toUpperCase().slice(0, 1) + loginStr.slice(1);
    }

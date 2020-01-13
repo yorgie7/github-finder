@@ -50,7 +50,8 @@ class Search extends Component {
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
         if (e.target.value === '') {
-            this.setState({ suggest: [], isSuggestOpen: false })
+            this.setState({ suggest: [], isSuggestOpen: false });
+            console.log('hhhhhh')
         } else {
             this.setState({isSuggestOpen: true});
             this.suggestFunction(e.target.value);
@@ -61,17 +62,17 @@ class Search extends Component {
     
     suggestFunction = async text => {
 
-        const res = await axios.get(`https://api.github.com/search/users?q=${text}`);
+        const res = await axios.get(`https://api.github.com/search/users?q=${text}`)
+        .then( (res)=> this.setState({ suggest: res.data.items}))
+        .catch((err)=> console.log('error in suggest function'));
 
-
-        console.log(res.data.items);
-        this.setState({ suggest: res.data.items});
-
+     console.log(this.state.suggest);
     }
+
 
     suggestedOnclick = (suggest_login) => {
 
-        this.setState({ text: suggest_login , isSuggestOpen : false});
+        this.setState({ text: '' , isSuggestOpen : false});
         console.log(suggest_login);
         this.props.searchUsers(suggest_login);
 

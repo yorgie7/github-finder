@@ -6,7 +6,7 @@ const  About=() =>{
 return (
       <div>
 
-        <Navbar title='About us' />
+        <Navbar title='GitHub App' />
   <div style={{textAlign: 'center'}}>
      <h1>yogesh</h1>
   </div>

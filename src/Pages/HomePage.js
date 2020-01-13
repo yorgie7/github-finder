@@ -79,9 +79,7 @@ class HomePage extends Component {
     const headingStyle = {
       margin: '20px',
       fontWeight: '350',
-
-    };
-
+  };
 
 
     return (

@@ -7,10 +7,17 @@
   padding-top: 10px;
 }
 
-/* .primary-button {
-
+primary-button {
+    height: '20px';
+    position: 'fixed';
+    background-color: 'blue'; text-align: 'center';
+    border: '1px solid blue'; border-radius: '60px';
+    padding-left: '7px'; padding-right: '7px'; color: 'white';
+    cursor: 'pointer';
+    font-size: '12px'
   
-} */
+  
+} 
 
 
 .Card {
@@ -102,12 +109,20 @@
    } 
   
 
-   .divHideScroll::-webkit-scrollbar {
+.divHideScroll::-webkit-scrollbar {
     width: 0 !important
 }
 .divHideScroll {
   height: 93vh;
-    overflow: scroll;
+  overflow: scroll;
+}
+
+.divHideScrollUser::-webkit-scrollbar {
+  width: 0 !important
+}
+.divHideScrollUser {
+height: 89vh;
+overflow: scroll;
 }
 
 
