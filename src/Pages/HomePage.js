@@ -6,6 +6,11 @@ import HomeGistCard from '../components/gists/HomeGistCard';
 import UserDialogue from '../components/usersdata/UserDialogue';
 import axios from 'axios';
 
+const headingStyle = {
+  margin: '15px 50px 15px 50px',
+  fontWeight: '350',
+  };
+
 
 class HomePage extends Component {
 
@@ -76,11 +81,7 @@ class HomePage extends Component {
   render() {
 
     const { isLoading, users, gists, dialogUser } = this.state;
-    const headingStyle = {
-      margin: '20px',
-      fontWeight: '350',
-  };
-
+    
 
     return (
 

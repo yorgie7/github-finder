@@ -7,6 +7,14 @@
   padding-top: 10px;
 }
 
+.gistUsrImg {
+  
+  text-align: center;
+  border-radius: 50%;
+  max-width: 45px;
+}
+
+
 primary-button {
     height: '20px';
     position: 'fixed';
@@ -54,12 +62,11 @@ primary-button {
     flex-direction: row;
     align-items: center;
     margin-top: 2vh;
-    min-width: 500px;
+    min-width: 400px;
     width :84%;
     margin-left: 8%;
     margin-right: 8%;
-    padding-right: 20px;
-    padding-top: 5px;
+    padding: 10px 0 10px 0;
     border-style: groove;
     border-width: 1px;
      background-color:#c2cad3;
@@ -74,7 +81,6 @@ primary-button {
 }
   .homeGistCard {
     display: flex; flex-direction: row;
-
     padding-top: 10px;
     padding-left: 10px;
     border-style: groove;
@@ -83,11 +89,10 @@ primary-button {
   }
   
   .gistCardAlign  {
-    margin-left: 40px;
-    margin-right: 40px;
+    margin: 10px 50px 10px 50px;
     Display: grid;
     grid-gap: 10px;
-    grid-template-columns: repeat(auto-fit , minmax(310px, 1fr)); 
+    grid-template-columns: repeat(auto-fit , minmax(340px, 1fr)); 
    } 
   
     .UserCard  {
@@ -104,7 +109,7 @@ primary-button {
     Display: grid;
     grid-gap: 20px;
     text-align: center;
-    margin: 0px 60px 0px 60px;
+    margin: 0px 50px 0px 50px;
     grid-template-columns: repeat(auto-fit, minmax(200px,1fr)) ; 
    } 
   
@@ -113,7 +118,7 @@ primary-button {
     width: 0 !important
 }
 .divHideScroll {
-  height: 93vh;
+  height: 92vh;
   overflow: scroll;
 }
 
@@ -130,7 +135,7 @@ overflow: scroll;
   display: block;
   margin: 0;
   list-style-type: none;
-  background-color: #d3dbd5;
+  background-color: rgb(169, 188, 202);
   z-index: 999;
   padding: 5px 10px 5px 10px;
 
@@ -145,4 +150,23 @@ overflow: scroll;
   z-index: 999;
   padding: 0 10px 5px 10px;
 
+}
+.ul1-suggest li {
+  color:black ;
+ font-weight: 200;
+ 
+}
+.ul1-suggest li:hover {
+  
+  cursor: default;
+ }
+
+.ul2-suggest li {
+  color: blue;
+  padding: 5px;
+ font-weight: 300;
+}
+.ul2-suggest li:hover {
+ font-size: 16px;
+ cursor: pointer;
 }

@@ -1,6 +1,24 @@
 import React, { Component } from 'react';
 //import { PropTypes } from 'prop-types';
 
+const userLogin = (loginStr) => {
+    return loginStr.toUpperCase().slice(0, 1) + loginStr.slice(1);
+}
+
+const buttonStyle = {
+    marginTop: '5px', backgroundColor: '5F9EAO',
+    border: '1px solid #7ba1ba',
+    padding: '2px 5px', fontSize:'12px',fontWeight:'300',color: 'blue'
+    
+}
+
+const userName = {
+    margin: '5px 5px 5px 0px',
+    textAlign: 'left',
+    fontSize: '90%',
+    fontWeight: 400
+}
+
 class HomeUserCard extends Component {
     constructor(props) {
         super(props);
@@ -18,25 +36,10 @@ class HomeUserCard extends Component {
     render() {
 
 
-        const userLogin = (loginStr) => {
-            return loginStr.toUpperCase().slice(0, 1) + loginStr.slice(1);
-        }
-
+     
         const { login, avatar_url } = this.props.user;
 
-        const userName = {
-            margin: '5px 5px 5px 0px',
-            textAlign: 'left',
-            fontSize: '18px',
-            fontWeight: 400
-        }
-
-        const buttonStyle = {
-            marginTop: '5px', backgroundColor: '5F9EAO',
-            border: '1px solid #7ba1ba',
-            padding: '2px 5px', fontSize:'12px',fontWeight:'300',color: 'blue'
-            
-        }
+       
       
         return (
             <div className="homeCard">
