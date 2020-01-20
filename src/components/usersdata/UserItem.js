@@ -1,20 +1,39 @@
 import React, { Component } from 'react';
 
-      
+
+const buttonStyle = {
+    margin: '5px 0 5px 0',
+    border: '1px solid #7ba1ba',
+    padding: '2px 5px', fontSize: '12px', fontWeight: '300',
+    color: 'white',
+    backgroundColor: 'cornflowerblue'
+}
+
 const userLogin = (loginStr) => {
     return loginStr.toUpperCase().slice(0, 1) + loginStr.slice(1);
-   }
+}
 
 const userName = {
     margin: '5px 5px 5px 0px',
     textAlign: 'center',
-    fontSize: '20px',
+    fontSize: '18px',
     fontWeight: 400
-   }
-
+}
+const gitLink = {
+    color: 'white',
+    backgroundColor: 'cornflowerblue',
+    
+    textDecoration: 'none',
+    fontSize: '14px'
+}
+const gitLinkButton = {
+    margin: '5px 10px 5px 10px', backgroundColor: 'lightgrey',
+    width: 'max-content', textAlign: 'center',
+    border: '1px solid rgb(125,160,185)'
+}
 
 class UserItem extends Component {
-    
+
     constructor(props) {
         super(props);
 
@@ -29,19 +48,32 @@ class UserItem extends Component {
 
 
     render() {
-        const { login, avatar_url } = this.props.user;
+        const { login, avatar_url, html_url } = this.props.user;
 
-        
+
         return (
-          <div className="Card">
-                <img src={avatar_url} alt='NOT FOUND' className='UsrImg' />
-               
-                <div>
-                     <h2 style={userName}>{userLogin(login)}</h2>
-                    <button onClick={this.toggleDialog}>Find More</button>
+            <div className="homeCard">
+                <div style={{ textAlign: 'center', marginLeft: '5px', width: '20%' }}>
+                    <img src={avatar_url} alt='NOT FOUND' className='homeUsrImg' />
                 </div>
-       
+
+                <div style={{
+                    display: 'flex', flexDirection: 'column',
+                    paddingLeft: '15px', alignContent: 'center'
+                }}>
+
+                    <h2 style={userName}>{userLogin(login)}</h2>
+
+                    <div style={{ textAlign: "center" }}>
+                        <button style={buttonStyle} onClick={this.toggleDialog}>Find More</button>
+                    </div>
+                    <button style={buttonStyle}>
+                        <a href={html_url} target='blank' style={gitLink}>github Link </a> 
+                        </button>
+                </div>
             </div>
+
+
         )
     }
 }

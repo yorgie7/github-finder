@@ -5,6 +5,10 @@ import Search from '../components/Search';
 import axios from 'axios';
 
 
+const headingStyle = {
+  margin: '15px 50px 15px 50px',
+  fontWeight: '350',
+  };
 
 
 class UserPage extends Component {
@@ -28,7 +32,7 @@ class UserPage extends Component {
     this.setState({
       users: res.data.items,
       isLoading: false
-      });
+    });
 
   }
 
@@ -40,17 +44,17 @@ class UserPage extends Component {
     return (
       <div>
         <div style={{ overflow: 'display' }}>
-            <Navbar title='GitHub App'>
-                <Search searchUsers={this.searchFunction} />
-            </Navbar>
+          <Navbar title='GitHub App'>
+            <Search searchUsers={this.searchFunction} />
+          </Navbar>
         </div>
 
-    
-         <div style={{ marginTop: '25px', height: '10%' }}>
 
-            <Users users={users} loading={isLoading} />
+        <div style={{ marginTop: '25px', height: '10%' }}>
+       
+          <Users users={users} loading={isLoading} />
 
-         </div>
+        </div>
       </div>
     )
   }

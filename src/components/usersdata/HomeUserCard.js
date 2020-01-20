@@ -52,7 +52,7 @@ class HomeUserCard extends Component {
                    <h2 style={userName}>{userLogin(login)}</h2>
 
                     <div style={{ textAlign: "left" }}>
-                    <button onClick={this.toggleDialog} style={buttonStyle}>Find More</button></div>
+                    <button style={buttonStyle} onClick={this.toggleDialog}>Find More</button></div>
                 </div>
 
                 

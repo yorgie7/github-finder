@@ -1,52 +1,4 @@
 
-.UsrImg {
-  
-  text-align: center;
-  border-radius: 50%;
-  max-width: 60px;
-  padding-top: 10px;
-}
-
-.gistUsrImg {
-  
-  text-align: center;
-  border-radius: 50%;
-  max-width: 45px;
-}
-
-
-primary-button {
-    height: '20px';
-    position: 'fixed';
-    background-color: 'blue'; text-align: 'center';
-    border: '1px solid blue'; border-radius: '60px';
-    padding-left: '7px'; padding-right: '7px'; color: 'white';
-    cursor: 'pointer';
-    font-size: '12px'
-  
-  
-} 
-
-
-.Card {
-    padding-bottom: 20px;
-    text-align: center; 
-    background-color: lightgray;
-}
-
-.homeCard {
-  display: flex;
-  flex-direction: row;
-  border: 2px solid lightgrey;
-  align-items: center;
-  padding-bottom: 15px;
-  padding-top: 10px;
-  padding-left: 10px;
-  
-  border-radius: 4px;
-}
-
-
 .Search {
   display: flex;
   flex-direction: column;
@@ -56,43 +8,92 @@ primary-button {
   height: fit-content;
   z-index: 99;
   }
+  
+.UsrImg {
+  
+  text-align: center;
+  border-radius: 50%;
+  max-width: 50px;
+  padding-top: 10px;
+}
+.homeUsrImg {
+  text-align: center;
+  border-radius: 50%;
+  max-width: 45px;
+  
+}
+
+.divUserImg {  text-align: center;
+border-radius: 10px;
+width: 120px;
+max-width: 120px;
+}
+
+.gistUsrImg {
+  text-align: center;
+  border-radius: 50%;
+  max-width: 45px;
+}
+
+
+.primary-button {
+    height: '20px';
+    position: 'fixed';
+    background-color: 'blue'; text-align: 'center';
+    border: '1px solid blue'; border-radius: '60px';
+    padding-left: '7px'; padding-right: '7px'; color: 'white';
+    cursor: 'pointer';
+    font-size: '12px'
+  } 
+
+
+.Card {
+  display:'flex'; flex-direction:'column';
+  border: 2px solid lightgrey;
+  border-radius: 4px;}
+
+.homeCard {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 0 10px 10px;
+  align-items: center;
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+}
+
+
 
   .GistCard {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 2vh;
+    margin: 2vh 8% 0 8%;
     min-width: 400px;
+    
     width :84%;
-    margin-left: 8%;
-    margin-right: 8%;
+    
     padding: 10px 0 10px 0;
-    border-style: groove;
-    border-width: 1px;
-     background-color:#c2cad3;
-   }
+    border:1px solid lightgray;
+    border-radius: 5px;
+    background-color: hsl(230, 0%, 90%);
+  }
 
 
-.homeUsrImg {
-  text-align: center;
-  border-radius: 50%;
-  max-width: 50px;
-  
-}
+
   .homeGistCard {
     display: flex; flex-direction: row;
     padding-top: 10px;
     padding-left: 10px;
-    border-style: groove;
-    border-width: 1px;
-    background-color: hsl(208, 25%, 73%);
+    border:1px solid lightgray;
+    border-radius: 5px;
+    background-color: hsl(230, 0%, 90%);
   }
   
   .gistCardAlign  {
     margin: 10px 50px 10px 50px;
     Display: grid;
     grid-gap: 10px;
-    grid-template-columns: repeat(auto-fit , minmax(340px, 1fr)); 
+    grid-template-columns: repeat(auto-fit , minmax(280px, 1fr)); 
    } 
   
     .UserCard  {
@@ -101,7 +102,7 @@ primary-button {
     margin-right: 10%;
     width: 80%;
     Display: inline-grid;
-    grid-gap: 20px;
+    grid-gap: 12px;
     grid-template-columns: repeat( auto-fit, minmax(200px,1fr));
     }
     

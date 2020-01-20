@@ -6,7 +6,10 @@ import { Link } from 'react-router-dom';
 const linkStyle = {
   padding: '0 10px 0 10px', textDecoration: 'none', width : 'auto'
 }
-
+const titlelinkStyle = {
+  padding: '0 10px 0 10px', textDecoration: 'none', width : 'auto' ,color:'black'
+  , fontWeight:'400'
+}
 const Nav = styled.div`
       background-color: lightgrey;
       display: flex;
@@ -32,7 +35,7 @@ class Navbar extends Component {
       <Nav>
         <Title>
           <div style={{ width: 'max-content', paddingRight: '20px' }}>
-             {this.props.title} 
+          <Link to="/" style={titlelinkStyle}>{this.props.title}</Link>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'row', padding: '0 auto 20px 0'}}>

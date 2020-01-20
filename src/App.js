@@ -11,20 +11,12 @@ function App() {
 
     return (
      <Router>
-       
-            {/* { <div style={{display:'flex', flexDirection:'row'}}>
-              <Link to="/">Home  </Link>
-                 <Link to="/userpage/">Users   </Link>
-                  <Link to="/gistpage/">Gists   </Link>
-                  <Link to="/aboutpage/">About   </Link>
-                  
-                  </div>  } */}
                  
-          <Switch>
-        <Route path="/gistpage/" exact component={GistsPage} />
-        <Route path="/userpage/" exact component={UserPage} />
-        <Route path="/aboutpage/" exact strict component={About} />
-        <Route path="/" exact strict component={HomePage} />
+        <Switch>
+          <Route path="/gistpage/" exact component={GistsPage} />
+          <Route path="/userpage/" exact component={UserPage} />
+          <Route path="/aboutpage/" exact strict component={About} />
+          <Route path="/" exact strict component={HomePage} />
 
       </Switch>
      </Router>

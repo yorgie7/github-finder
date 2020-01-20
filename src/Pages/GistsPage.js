@@ -44,14 +44,15 @@ class GistsPage extends Component {
       <div>
         <Navbar title='GitHub App' />
   
-                  <div>
+                  <div style={{height:'85vh',overflow:'auto'}}>
                     {gists.slice(0, visible).map(gist => (
                       <GistItem key={gist.id} gist={gist} />
                     ))}</div>
                     
                    { this.state.gists.length > 0 && 
-<div style={{ textAlign: 'center', paddingTop: '10px' }}>
-                    <button onClick={this.loadMore}>See More</button>
+<div style={{textAlign:'center', paddingTop:'10px'}}>
+                    <button onClick={this.loadMore}
+                    className="primary-button">See More</button>
                   </div>}
 
                 </div>

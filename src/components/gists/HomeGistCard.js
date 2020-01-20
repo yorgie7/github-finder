@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const flexColumn = {
     alignItems: 'center',
-    display: 'flex', paddingRight: '20px',
+    display: 'flex', paddingRight: '12px',
 
     flexDirection: 'column', flexBasis: '200px'
 }
@@ -12,12 +12,13 @@ const limit_char = {
     margin: '10px 0 10px 0',
     overflow: 'hidden',
     whiteSpace: 'nowrap',
+    fontSize:'2vh'
 }
 const userName = {
     margin: '5px 5px 5px 0px',
     textAlign: 'left',
-    fontSize: '16px',
-    fontWeight: 400,
+    fontSize: '14px',
+    fontWeight: 300,
 }
 
 
@@ -37,8 +38,8 @@ class HomeGistCard extends Component {
                 <div style={flexColumn}>
                     <a href={html_url} target='_blank' rel='noopener noreferrer'
                         style={{ alignSelf: 'baseline' }}>gist url</a>
-                    <p style={limit_char}>Created at: {dateConvert(created_at)} </p>
-                    <p style={limit_char}>Updated at: {dateConvert(updated_at)}</p>
+                    <p style={limit_char}>Created on: {dateConvert(created_at)} </p>
+                    <p style={limit_char}>Updated on: {dateConvert(updated_at)}</p>
                 </div>
 
             </div>
