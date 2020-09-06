@@ -43,7 +43,7 @@ class Search extends Component {
 
             this.props.searchUsers(this.state.text);
 
-            this.setState({ text: '' })
+          this.setState({...this.state , text: '',suggest: [] });
         }
     };
 
