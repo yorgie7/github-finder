@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component , Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/common/Header';
 import HomeUserCard from '../components/usersdata/HomeUserCard';
@@ -85,7 +85,7 @@ class HomePage extends Component {
 
     return (
 
-      <div>
+      <Fragment>
         <div>
           <Header Search={this.SearchFunction} />
         </div>
@@ -137,7 +137,7 @@ class HomePage extends Component {
         </div>
 
 
-      </div>
+      </Fragment>
     )
   }
 }
