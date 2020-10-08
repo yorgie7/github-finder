@@ -1,16 +1,24 @@
-import React, { Component , Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/common/Header';
 import HomeUserCard from '../components/usersdata/HomeUserCard';
 import HomeGistCard from '../components/gists/HomeGistCard';
 import UserDialogue from '../components/usersdata/UserDialogue';
+import styled from "styled-components";
+import Navbar from '../components/common/Navbar';
+import Search from '../components/Search';
+
 import axios from 'axios';
 
-const headingStyle = {
-  margin: '15px 50px 15px 50px',
-  fontWeight: '350',
-  };
+const headingStyle = {fontSize: '20px',
+  margin: '15px 5%',
+  fontWeight: '400',
+};
 
+const Loader = styled.div`
+font-size: 30px;
+text-align: center;
+ height : 20vh;
+  padding : 7vh`;
 
 class HomePage extends Component {
 
@@ -29,33 +37,36 @@ class HomePage extends Component {
 
 
   async getGists() {
-    const result = await axios.get(`https://api.github.com/gists/public`);
-    this.setState({ gists: result.data });
+    const result = await axios.get(`https://api.github.com/gists/public`)
+        .then(res => this.setState({ gists: res.data })).catch(e => console.log(e));
+    ;
 
-    console.log(result.data);
   }
 
   async getUsers() {
-    const result = await axios.get(`https://api.github.com/users`);
-    this.setState({ users: result.data });
+    const result = await axios.get(`https://api.github.com/users`)
+      .then( res => {
+         this.setState({ ...this.state, users: res.data });
+      console.log(res.status)
+     }).catch(e => console.log(e));
 
-    console.log(result.data);
   }
 
   async componentDidMount() {
+    this.setState({ isLoading: true });
     this.getUsers();
     this.getGists();
     this.setState({ isLoading: false });
-
-    console.log('home data loaded');
   }
 
 
   SearchFunction = async text => {
     this.setState({ isLoading: true });
-    const res = await axios.get(`https://api.github.com/search/users?q=${text}`);
-    console.log('data');
-    this.setState({ users: res.data.items, isLoading: false });
+    await axios.get(`https://api.github.com/search/users?q=${text}`)
+    .then( res => {
+      if(res.status===200){ this.setState({users: res.data.items, isLoading: false }) }
+    else{ console.log('not found')}});
+    
   }
 
 
@@ -63,16 +74,14 @@ class HomePage extends Component {
 
     if (dialogUser === null) {
       this.setState({ dialogUser: '', isDialogOpen: !this.state.isDialogOpen });
-      console.log('bye dialog');
-}
+    }
     else {
       this.setState({
         dialogUser: dialogUser,
         isDialogOpen: !this.state.isDialogOpen
       });
-      console.log('hii dialog');
+
     }
-    console.log(this.state.dialogUser);
   }
 
   /*- --   dialogUser is parameter passed from HomeUserCard (ie; this.props.user.login) in 
@@ -80,64 +89,88 @@ class HomePage extends Component {
 
   render() {
 
-    const { isLoading, users, gists, dialogUser } = this.state;
-    
+    const { isLoading, users, gists, dialogUser, isDialogOpen } = this.state;
+
 
     return (
 
-      <Fragment>
-        <div>
-          <Header Search={this.SearchFunction} />
-        </div>
-        <div>
+      <>
+
+        <Navbar title="GitHub App">
+
+          <Search searchUsers={this.SearchFunction} />
+        </Navbar>
+
+        <Fragment>
           {
-            isLoading ? (
-              <div style={{ textAlign: 'center' }}>
-                <h2>Loading...</h2>
-                Please check your connection...</div>
-            ) : (
-                <div className='divHideScroll'>
-                  <h3 style={headingStyle}>Github Users</h3>
+            isLoading ? (<div style = {{ textAlign: "center" }}>loading...</div>)
+              :
+              (
+              <div className='divHideScroll'>
+                
+                <h3 style={headingStyle}>Github Users</h3>
+
+                {
+                  users.length > 0 ? (
+                  <>
                   <div className='homeUserCard'>
-                    {users.slice(0, 10).map(user => (
-                      <HomeUserCard key={user.id} 
-                      user={user} 
-                      toggleDialog={this.toggleDialog} />
-                    ))}
+                    {
+                      users.slice(0, 10).map(user => (
+                        <HomeUserCard key={user.id} user={user} toggleDialog={this.toggleDialog} />
+                      ))}
+        
                   </div>
+                     <div style={{ display:'block' ,textAlign: 'center', paddingTop: '10px' }}>
+                     <button><Link to="/userpage/">See More</Link></button>
+                   </div>
+                   </>
+
+
+                  ) 
+                  : 
+                  (<Loader> Loading.... </Loader>)
+                }
+
+
+
+                {/* ====>  dialog box*/}
+                {
+                  isDialogOpen &&
+                  (
+                    <UserDialogue
+                      user={dialogUser}
+                      toggleDialog={this.toggleDialog}
+                    />
+                  )
+                }
+
+
+                <h3 style={headingStyle}>Public Gists</h3>
+                
+                {
+                  gists.length > 0 ? (
+                    <>
+                <div className='gistCardAlign'>
                   {
-                    this.state.isDialogOpen && 
-                      ( <div>
-
-                        <UserDialogue
-                          user={dialogUser}
-                          toggleDialog={this.toggleDialog}
-                        />
-
-                      </div> )
-                  }
-
-                  <div style={{ textAlign: 'center', paddingTop: '10px' }}>
-                    <button><Link to="/userpage/">See More</Link></button>
-                  </div>
-
-                  <h3 style={headingStyle}>Public Gists</h3>
-
-                  <div className='gistCardAlign'>
-                    {gists.slice(0, 9).map(gist => (
+                    gists.slice(0, 9).map(gist => (
                       <HomeGistCard key={gist.id} gist={gist} />
-                    ))}
-                  </div>
-                  <div style={{ textAlign: 'center', paddingTop: '10px', paddingBlockEnd: '10px' }}>
-                    <button><Link to="/gistpage/">See More</Link></button>
-                  </div>
+                    ))
+                    }
                 </div>
-              )
+
+                <div style={{ textAlign: 'center', paddingTop: '10px', paddingBlockEnd: '10px' }}>
+                  <button><Link to="/gistpage/">See More</Link></button>
+                </div>
+              </> 
+              ) 
+              :
+               (<Loader> Loading.... </Loader>)
+            }
+              </div>) 
           }
-        </div>
 
-
-      </Fragment>
+        </Fragment>
+      </>
     )
   }
 }

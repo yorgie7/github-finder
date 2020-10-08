@@ -4,13 +4,6 @@ import Users from '../components/usersdata/Users';
 import Search from '../components/Search';
 import axios from 'axios';
 
-
-const headingStyle = {
-  margin: '15px 50px 15px 50px',
-  fontWeight: '350',
-  };
-
-
 class UserPage extends Component {
 
   state = {

@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 const flexColumn = {
     alignItems: 'center',
     display: 'flex', paddingRight: '12px',
-
-    flexDirection: 'column', flexBasis: '200px'
+    flexDirection: 'column', 
+    flexBasis: '35%px'
 }
-const dateConvert = (str) => { return Date(str).substring(0 ,15);}
+const DateConvertor = (str) => { return Date(str).substring(0 ,15);}
 
 const limit_char = {
     margin: '10px 0 10px 0',
@@ -38,8 +38,8 @@ class HomeGistCard extends Component {
                 <div style={flexColumn}>
                     <a href={html_url} target='_blank' rel='noopener noreferrer'
                         style={{ alignSelf: 'baseline' }}>gist url</a>
-                    <p style={limit_char}>Created on: {dateConvert(created_at)} </p>
-                    <p style={limit_char}>Updated on: {dateConvert(updated_at)}</p>
+                    <p style={limit_char}>Created on: {DateConvertor(created_at)} </p>
+                    <p style={limit_char}>Updated on: {DateConvertor(updated_at)}</p>
                 </div>
 
             </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 
 const inputStyle = {
@@ -8,8 +9,8 @@ const inputStyle = {
 };
 
 const searchBox = {
-    border: '1px solid blue', borderRadius: '5px', marginRight: '2px',
-    paddingLeft: '5px', backgroundColor: 'white', width: '200px'
+    border: '1px solid #9493dd', borderRadius: '5px', marginRight: '2px',
+    padding: '5px 0 0 5px', backgroundColor: 'white', width: '200px'
 }
 
 const submitButton = {
@@ -20,6 +21,14 @@ const submitButton = {
     , fontSize: '14px'
 }
 
+const SearchBar = styled.div`display: flex;
+flex-direction: column;
+margin: auto;
+margin-right: 10px;
+width: max-content ;
+height: fit-content;
+z-index: 99`;
+
 
 class Search extends Component {
     constructor(props) {
@@ -29,9 +38,10 @@ class Search extends Component {
             suggest: [],
             isSuggestOpen: false
         }
+
     };
 
- 
+
 
     onSubmit = (e) => {
         e.preventDefault();
@@ -43,52 +53,49 @@ class Search extends Component {
 
             this.props.searchUsers(this.state.text);
 
-          this.setState({...this.state , text: '',suggest: [] });
+            this.setState({ ...this.state, text: '', suggest: [] });
         }
     };
 
-    onChange = (e) => {
+
+    suggestFunction = async text => {
+
+        await axios.get(`https://api.github.com/search/users?q=${text}`)
+            .then((res) => this.setState({ suggest: res.data.items }))
+            .catch((error) => console.log('Error in suggest function'));
+
+        console.log(this.state.suggest);
+    }
+
+
+    onChange = e => {
         this.setState({ [e.target.name]: e.target.value });
         if (e.target.value === '') {
             this.setState({ suggest: [], isSuggestOpen: false });
-            console.log('hhhhhh')
+
         } else {
-            this.setState({isSuggestOpen: true});
+        this.setState({ isSuggestOpen: true });
             this.suggestFunction(e.target.value);
         }
-
-
     }
-    
-    suggestFunction = async text => {
 
-        const res = await axios.get(`https://api.github.com/search/users?q=${text}`)
-        .then( (res)=> this.setState({ suggest: res.data.items}))
-        .catch((err)=> console.log('error in suggest function'));
-
-     console.log(this.state.suggest);
-    }
 
 
     suggestedOnclick = (suggest_login) => {
-
-        this.setState({ text: '' , isSuggestOpen : false});
-        console.log(suggest_login);
+        console.log(suggest_login)
+        this.setState({ text: '', isSuggestOpen: false });
         this.props.searchUsers(suggest_login);
 
     }
 
-
     render() {
-
-       
+        const { suggest } = this.state;
 
         return (
-            <div className='Search'>
+            <SearchBar>
 
                 <form onSubmit={this.onSubmit} style={inputStyle}>
-                    <input name='text' type='text'
-                        placeholder='Search for user... '
+                    <input name='text' type='text' placeholder='Search for user... '
                         value={this.state.text} autoComplete='off'
                         onChange={this.onChange} style={searchBox} />
 
@@ -96,28 +103,36 @@ class Search extends Component {
                 </form>
 
 
-                {  this.state.isSuggestOpen &&
-                    (<div style={{ overflow: 'display', height: '10px', zIndex: '999', width: '210px' }}>
+                {
+                    this.state.isSuggestOpen &&
+                  ( 
+                    <div style={{ overflow: 'display', height: '10px', zIndex: '999', width: '210px' }}>
 
-                        {this.state.suggest.length > 0 && (
-                            <ul className='ul1-suggest'>
+                       {this.state.suggest.length > 0 && (
+                        <ul className='ul1-suggest'>
 
-                                <li>Users</li>
+                            <li>Users</li>
 
-                            </ul>)}
+                        </ul>)}
 
-                        <ul className='ul2-suggest'>
+                    <ul className='ul2-suggest'>
 
-                               {this.state.suggest.slice(0, 7).map((suggest_result) => <li key={suggest_result.id}
+                        { 
+                            suggest.slice(0, 7)
+                            .map((suggest_result) => <li key={suggest_result.id}
                                 onClick={() => { this.suggestedOnclick(suggest_result.login) }} >
 
-                                {suggest_result.login}</li>)}
+                                {suggest_result.login}</li>)
+                        }
 
-                        </ul>
-                    </div>)
+                    </ul>
+                </div>
+        
+
+                    )
                 }
 
-            </div>
+            </SearchBar>
         )
     }
 }

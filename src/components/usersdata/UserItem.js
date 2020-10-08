@@ -26,11 +26,7 @@ const gitLink = {
     textDecoration: 'none',
     fontSize: '14px'
 }
-const gitLinkButton = {
-    margin: '5px 10px 5px 10px', backgroundColor: 'lightgrey',
-    width: 'max-content', textAlign: 'center',
-    border: '1px solid rgb(125,160,185)'
-}
+
 
 class UserItem extends Component {
 

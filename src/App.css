@@ -59,6 +59,7 @@ max-width: 120px;
   align-items: center;
   border: 2px solid lightgrey;
   border-radius: 5px;
+  max-width: 350px;
 }
 
 
@@ -78,7 +79,13 @@ max-width: 120px;
     background-color: hsl(230, 0%, 90%);
   }
 
-
+  .homeUserCard  {
+    Display: grid;
+    grid-gap: 20px;
+    text-align: center;
+    margin: 10px 10%;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr)) ; 
+   } 
 
   .homeGistCard {
     display: flex; flex-direction: row;
@@ -90,7 +97,7 @@ max-width: 120px;
   }
   
   .gistCardAlign  {
-    margin: 10px 50px 10px 50px;
+    margin: 10px 10%;
     Display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(auto-fit , minmax(280px, 1fr)); 
@@ -106,13 +113,7 @@ max-width: 120px;
     grid-template-columns: repeat( auto-fit, minmax(200px,1fr));
     }
     
-   .homeUserCard  {
-    Display: grid;
-    grid-gap: 20px;
-    text-align: center;
-    margin: 0px 50px 0px 50px;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr)) ; 
-   } 
+  
   
 
 .divHideScroll::-webkit-scrollbar {

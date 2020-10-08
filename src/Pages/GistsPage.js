@@ -22,9 +22,7 @@ class GistsPage extends Component {
     this.setState({ isLoading: true });
     const result = await axios.get(`https://api.github.com/gists/public`);
     this.setState({ gists: result.data });
-  
-   console.log(result.data);
-   console.log('Gists loaded');
+
   }
  
 
@@ -41,7 +39,7 @@ class GistsPage extends Component {
     const { gists , visible} = this.state;
 
     return (
-      <div>
+      <React.Fragment>
         <Navbar title='GitHub App' />
   
                   <div style={{height:'85vh',overflow:'auto'}}>
@@ -55,7 +53,7 @@ class GistsPage extends Component {
                     className="primary-button">See More</button>
                   </div>}
 
-                </div>
+                </React.Fragment>
 
       
     

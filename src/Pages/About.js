@@ -1,17 +1,10 @@
 import React from 'react';
-import Navbar from '../components/common/Navbar';
 
 const  About=() =>{
-
 return (
-      <div>
-
-        <Navbar title='GitHub App' />
-  <div style={{textAlign: 'center'}}>
+      
      <h1>yogesh</h1>
-  </div>
 
-        </div>
     );
   }
 

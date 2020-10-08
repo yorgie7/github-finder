@@ -16,7 +16,8 @@ const Nav = styled.div`
       flex-direction:row;
       height: 2 rem;
       width:100%`;
-const Title = styled.h3`
+
+const Title = styled.div`
 font-size: 20px;display: flex;flex-direction:row;
 text-shadow: 1px 0px 0px lightgrey;
 color: black; margin:10px; font-weight: 400; margin-right: auto`;
