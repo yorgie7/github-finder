@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
+import { UserStyledCard, GitHubLinkButton} from "../../styled"
 
-
-const buttonStyle = {
-    margin: '5px 0 5px 0',
-    border: '1px solid #7ba1ba',
-    padding: '2px 5px', fontSize: '12px', fontWeight: '300',
-    color: 'white',
-    backgroundColor: 'cornflowerblue'
-}
 
 const userLogin = (loginStr) => {
     return loginStr.toUpperCase().slice(0, 1) + loginStr.slice(1);
@@ -21,10 +14,8 @@ const userName = {
 }
 const gitLink = {
     color: 'white',
-    backgroundColor: 'cornflowerblue',
-    
     textDecoration: 'none',
-    fontSize: '14px'
+    fontSize: '12px'
 }
 
 
@@ -48,7 +39,7 @@ class UserItem extends Component {
 
 
         return (
-            <div className="homeCard">
+            <UserStyledCard>
                 <div style={{ textAlign: 'center', marginLeft: '5px', width: '20%' }}>
                     <img src={avatar_url} alt='NOT FOUND' className='homeUsrImg' />
                 </div>
@@ -61,13 +52,13 @@ class UserItem extends Component {
                     <h2 style={userName}>{userLogin(login)}</h2>
 
                     <div style={{ textAlign: "center" }}>
-                        <button style={buttonStyle} onClick={this.toggleDialog}>Find More</button>
+                        <GitHubLinkButton onClick={this.toggleDialog}>Find More</GitHubLinkButton>
                     </div>
-                    <button style={buttonStyle}>
+                    <GitHubLinkButton>
                         <a href={html_url} target='blank' style={gitLink}>github Link </a> 
-                        </button>
+                        </GitHubLinkButton>
                 </div>
-            </div>
+            </UserStyledCard>
 
 
         )

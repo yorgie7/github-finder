@@ -1,16 +1,5 @@
 
-.Search {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  margin-right: 10px;
-  width: max-content ;
-  height: fit-content;
-  z-index: 99;
-  }
-  
 .UsrImg {
-  
   text-align: center;
   border-radius: 50%;
   max-width: 50px;
@@ -20,13 +9,13 @@
   text-align: center;
   border-radius: 50%;
   max-width: 45px;
-  
 }
 
-.divUserImg {  text-align: center;
-border-radius: 10px;
-width: 120px;
-max-width: 120px;
+.divUserImg {
+  text-align: center;
+  border-radius: 10px;
+  width: 120px;
+  max-width: 120px;
 }
 
 .gistUsrImg {
@@ -35,89 +24,63 @@ max-width: 120px;
   max-width: 45px;
 }
 
-
-.primary-button {
-    height: '20px';
-    position: 'fixed';
-    background-color: 'blue'; text-align: 'center';
-    border: '1px solid blue'; border-radius: '60px';
-    padding-left: '7px'; padding-right: '7px'; color: 'white';
-    cursor: 'pointer';
-    font-size: '12px'
-  } 
-
-
 .Card {
-  display:'flex'; flex-direction:'column';
+  display: "flex";
+  flex-direction: "column";
   border: 2px solid lightgrey;
-  border-radius: 4px;}
-
-.homeCard {
-  display: flex;
-  flex-direction: row;
-  padding: 5px 0 10px 10px;
-  align-items: center;
-  border: 2px solid lightgrey;
-  border-radius: 5px;
-  max-width: 350px;
+  border-radius: 4px;
 }
 
+.GistCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 2vh 8% 0 8%;
+  min-width: 400px;
+  width: 84%;
+  padding: 10px 0 10px 0;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: hsl(230, 0%, 90%);
+}
 
+.homeUserCard {
+  display: grid;
+  grid-gap: 20px;
+  text-align: center;
+  margin: 10px 10%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
 
-  .GistCard {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 2vh 8% 0 8%;
-    min-width: 400px;
-    
-    width :84%;
-    
-    padding: 10px 0 10px 0;
-    border:1px solid lightgray;
-    border-radius: 5px;
-    background-color: hsl(230, 0%, 90%);
-  }
+.homeGistCard {
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+  padding-left: 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: hsl(230, 0%, 90%);
+}
 
-  .homeUserCard  {
-    Display: grid;
-    grid-gap: 20px;
-    text-align: center;
-    margin: 10px 10%;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr)) ; 
-   } 
+.gistCardAlign {
+  margin: 10px 10%;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
 
-  .homeGistCard {
-    display: flex; flex-direction: row;
-    padding-top: 10px;
-    padding-left: 10px;
-    border:1px solid lightgray;
-    border-radius: 5px;
-    background-color: hsl(230, 0%, 90%);
-  }
-  
-  .gistCardAlign  {
-    margin: 10px 10%;
-    Display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(auto-fit , minmax(280px, 1fr)); 
-   } 
-  
-    .UserCard  {
-    margin-top: 10px;
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
-    Display: inline-grid;
-    grid-gap: 12px;
-    grid-template-columns: repeat( auto-fit, minmax(200px,1fr));
-    }
-    
-  
-  
+.UserCard {
+  margin-top: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  display: inline-grid;
+  grid-gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
 
 .divHideScroll::-webkit-scrollbar {
-    width: 0 !important
+  width: 0 !important;
 }
 .divHideScroll {
   height: 92vh;
@@ -125,13 +88,12 @@ max-width: 120px;
 }
 
 .divHideScrollUser::-webkit-scrollbar {
-  width: 0 !important
+  width: 0 !important;
 }
 .divHideScrollUser {
-height: 89vh;
-overflow: scroll;
+  height: 79vh;
+  overflow: scroll;
 }
-
 
 .ul1-suggest {
   display: block;
@@ -140,7 +102,6 @@ overflow: scroll;
   background-color: rgb(169, 188, 202);
   z-index: 999;
   padding: 5px 10px 5px 10px;
-
 }
 .ul2-suggest {
   display: block;
@@ -151,24 +112,21 @@ overflow: scroll;
   background-color: #d3dbd5;
   z-index: 999;
   padding: 0 10px 5px 10px;
-
 }
 .ul1-suggest li {
-  color:black ;
- font-weight: 200;
- 
+  color: black;
+  font-weight: 200;
 }
 .ul1-suggest li:hover {
-  
   cursor: default;
- }
+}
 
 .ul2-suggest li {
   color: blue;
   padding: 5px;
- font-weight: 300;
+  font-weight: 300;
 }
 .ul2-suggest li:hover {
- font-size: 16px;
- cursor: pointer;
+  font-size: 16px;
+  cursor: pointer;
 }

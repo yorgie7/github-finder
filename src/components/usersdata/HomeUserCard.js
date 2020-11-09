@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { HomeUserStyledCard } from "../../styled";
 //import { PropTypes } from 'prop-types';
 
 const userLogin = (loginStr) => {
@@ -42,7 +43,7 @@ class HomeUserCard extends Component {
        
       
         return (
-            <div className="homeCard">
+            <HomeUserStyledCard>
                 <img src={avatar_url} alt='NOT FOUND' className='homeUsrImg' />
                 <div style={{
                     display: 'flex', flexDirection: 'column',
@@ -57,7 +58,7 @@ class HomeUserCard extends Component {
 
                 
 
-            </div>
+            </HomeUserStyledCard>
         )
     }
 }
