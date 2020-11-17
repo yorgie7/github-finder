@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { UserStyledCard, GitHubLinkButton} from "../../styled"
+import { UserStyledCard, GitHubLinkButton, AvatarUser} from "../../styled"
 
 
 const userLogin = (loginStr) => {
@@ -41,12 +41,12 @@ class UserItem extends Component {
         return (
             <UserStyledCard>
                 <div style={{ textAlign: 'center', marginLeft: '5px', width: '20%' }}>
-                    <img src={avatar_url} alt='NOT FOUND' className='homeUsrImg' />
+                    <AvatarUser src={avatar_url} alt='NOT FOUND' />
                 </div>
 
                 <div style={{
                     display: 'flex', flexDirection: 'column',
-                    paddingLeft: '15px', alignContent: 'center'
+                    paddingLeft: '15%', alignContent: 'center'
                 }}>
 
                     <h2 style={userName}>{userLogin(login)}</h2>

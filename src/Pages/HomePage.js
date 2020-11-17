@@ -6,7 +6,6 @@ import UserDialogue from '../components/usersdata/UserDialogue';
 import { Loader, Button }  from "../styled";
 import Navbar from '../components/common/Navbar';
 import Search from '../components/Search';
-
 import axios from 'axios';
 
 const headingStyle = {

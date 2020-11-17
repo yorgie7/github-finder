@@ -1,10 +1,4 @@
 
-.UsrImg {
-  text-align: center;
-  border-radius: 50%;
-  max-width: 50px;
-  padding-top: 10px;
-}
 .homeUsrImg {
   text-align: center;
   border-radius: 50%;
@@ -52,21 +46,11 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
-.homeGistCard {
-  display: flex;
-  flex-direction: row;
-  padding-top: 10px;
-  padding-left: 10px;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  background-color: hsl(230, 0%, 90%);
-}
-
 .gistCardAlign {
   margin: 10px 10%;
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .UserCard {
@@ -76,7 +60,7 @@
   width: 80%;
   display: inline-grid;
   grid-gap: 12px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
 
 .divHideScroll::-webkit-scrollbar {

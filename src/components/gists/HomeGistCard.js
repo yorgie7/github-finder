@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
+import {HomeStyledGistCard }  from "../../styled";
 
 const flexColumn = {
     alignItems: 'center',
     display: 'flex', paddingRight: '12px',
     flexDirection: 'column', 
-    flexBasis: '35%px'
+    flexBasis: '35%'
 }
-const DateConvertor = (str) => { return Date(str).substring(0 ,15);}
+const DateConvertor = str =>  Date(str).substring(0 ,15);
 
 const limit_char = {
-    margin: '10px 0 10px 0',
+    margin: '10px 0 0 0',
     overflow: 'hidden',
     whiteSpace: 'nowrap',
-    fontSize:'2vh'
+
+    fontSize:'75%'
 }
 const userName = {
     margin: '5px 5px 5px 0px',
     textAlign: 'left',
-    fontSize: '14px',
+    fontSize: '75%',
     fontWeight: 300,
 }
 
@@ -29,7 +31,7 @@ class HomeGistCard extends Component {
         const { owner, html_url, created_at, updated_at } = this.props.gist
 
         return (
-            <div className='homeGistCard'>
+            <HomeStyledGistCard>
                 <div style={flexColumn}>
                     <img src={owner.avatar_url} alt='NOT FOUND' className='homeUsrImg' />
                     <h4 style={userName}>{owner.login}</h4>
@@ -42,7 +44,7 @@ class HomeGistCard extends Component {
                     <p style={limit_char}>Updated on: {DateConvertor(updated_at)}</p>
                 </div>
 
-            </div>
+            </HomeStyledGistCard>
 
 
         )

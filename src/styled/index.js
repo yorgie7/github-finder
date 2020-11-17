@@ -105,3 +105,22 @@ background-color: cornflowerblue;
     font-size: 15px;
   }
 `;
+
+export const HomeStyledGistCard = styled.div`
+display: flex;
+flex-direction: row;
+padding: 10px 0 10px 10px;
+padding-left: 10px;
+border: 1px solid lightgray;
+border-radius: 5px;
+background-color: hsl(230, 0%, 90%);`;
+
+
+
+
+//avatar image
+
+export const AvatarUser = styled.img`
+text-align: center;
+border-radius: 50%;
+max-width: 55px;`;

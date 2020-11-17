@@ -34,7 +34,7 @@ class User extends Component {
         dialogUser: dialogUser,
         isDialogOpen: !this.state.isDialogOpen,
       });
-      console.log("hii dialog");
+    
     }
   }
 
@@ -58,16 +58,16 @@ class User extends Component {
           ) : (
             <div className="divHideScrollUser">
               <div className="UserCard">
-                {this.props.users.slice(0, this.state.visible).map((usr) => (
+                {this.props.users.slice(0, this.state.visible).map((user) => (
                   <UserItem
-                    key={usr.id}
-                    user={usr}
+                    key={user.id}
+                    user={user}
                     toggleDialog={this.toggleDialog}
                   />
                 ))}
               </div>
 
-              {this.props.users.length > 0 && (
+              {this.props.users.length > 1 && (
                 <div style={{ textAlign: "center", paddingTop: "20px" }}>
                   <Button onClick={this.loadMore}>See More</Button>
                 </div>
