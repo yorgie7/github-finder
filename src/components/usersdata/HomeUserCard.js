@@ -52,6 +52,3 @@ class HomeUserCard extends Component {
 }
 
 export default HomeUserCard;
-
-// we pass user not usr, usr  is state of Users's one pc
-/*<a href={html_url} target='_blank' rel='noopener noreferrer'>Find More</a>*/
