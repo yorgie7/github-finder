@@ -27,37 +27,25 @@ class HomeUserCard extends Component {
         this.toggleDialog = this.toggleDialog.bind(this);
     }
 
-
     toggleDialog() {
-
         this.props.toggleDialog(this.props.user.login);
         console.log('dialogUser name is updated in home page');
     }
 
-    render() {
-
-
-     
+    render() {     
         const { login, avatar_url } = this.props.user;
-
-       
-      
-        return (
+     return (
             <HomeUserStyledCard>
                 <img src={avatar_url} alt='NOT FOUND' className='homeUsrImg' />
                 <div style={{
                     display: 'flex', flexDirection: 'column',
                     paddingLeft: '25px', alignContent: 'center'
                 }}>
-  
-                   <h2 style={userName}>{userLogin(login)}</h2>
+                <h2 style={userName}>{userLogin(login)}</h2>
 
                     <div style={{ textAlign: "left" }}>
                     <button style={buttonStyle} onClick={this.toggleDialog}>Find More</button></div>
                 </div>
-
-                
-
             </HomeUserStyledCard>
         )
     }
