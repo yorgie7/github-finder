@@ -10,37 +10,22 @@ class AutoSuggestion extends Component {
          
         }
     };
-
-
-
     render() {
-   
         const { suggests } = this.props;
         return (
-            
-
-                        <SuggestBlock>
-
+                          <SuggestBlock>
                             {this.props.suggests.length > 0 && (
                                 <ul className='ul1-suggest'>
-
                                     <li>Users</li>
-
                                 </ul>)}
-
-                            <ul className='ul2-suggest'>
-
-                                {
+                            <ul className='ul2-suggest'>  
+                                 {
                                     suggests.slice(0, 7).map((suggest_result) => <li key={suggest_result.id}
                                         onClick={() => { this.props.searchUsers(suggest_result.login) }} >
-
-                                        {suggest_result.login}</li>)}
-
+                                        {suggest_result.login}</li>)
+                                }
                             </ul>
                         </SuggestBlock>
-                
-
-        
         )
     }
 }
