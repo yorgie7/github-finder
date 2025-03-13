@@ -71,12 +71,10 @@ class UserDialogue extends Component {
 
 
   async componentDidMount() {
-
     const result = await fetch(`https://api.github.com/users/${this.state.userName}`)
       .then(res => res.json());
-    console.log(this.state.userName);
-    this.setState({ userData: result });
 
+    this.setState({ userData: result });
   };
 
   Update() {
@@ -87,13 +85,9 @@ class UserDialogue extends Component {
     const { name, avatar_url } = this.state.userData;
 
     return (
-
       <div className="dialogstyle" style={dialogStyle}>
-
         <div className="flexbox" style={flexbox}>
-
           <div className='modelcontant' style={modelContent}>
-
             <div style={{ textAlign: 'right', paddingTop: '0px' }}>
               <button onClick={this.Update} style={closeButton} >X</button>
             </div>
@@ -129,16 +123,10 @@ class UserDialogue extends Component {
                 </div>
                 <div style={gitLinkButton}>
                   <a href={this.state.userData.html_url} target='blank' style={gitLink}>github Link </a> </div>
-
               </div>
-
             </div>
-
-
           </div>
-
         </div>
-
       </div>
 
 
